@@ -1,0 +1,42 @@
+{% extends "blog/base.html" %}
+{% block title %} "The BLARGH" {% endblock %}
+
+{% block content %}
+
+
+<table class="main" bgcolor="#222222">
+
+<tr><td>
+</td><td width="784">
+<h2>&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbspGrayBravery.com&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp</h2>
+</td><td width="72">
+</td></tr>
+<tr><td>
+
+</td><td>
+<center>
+<h1> About Me </h1>
+</center>
+</td><td></td></tr>
+<tr class="spaceUnder"><td>
+</td><td>
+<p class ="main"> My name is Mike. I'm a student at The Ohio State University studying computer science engineering. I enjoy playing videos games, watching anime, roller blading, and running, along with various other activies. I use the alias GrayBravery in most of the games I play, hence the name of the website.  </p>
+</td><td></td></tr>
+<tr><td></td><td>
+{% for comment in blog.comments %}
+<br>
+{{comment.poster}}
+{{comment.pub_date|date:"b"}}
+{{coment.content}}
+
+{% endfor %}
+
+</td><td>
+</td></tr>
+<tr><td></td><td>
+
+
+</td></tr>
+</table>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+{% block title %} "The BLARGH" {% endblock %}
+
+{% block content %}
+
+{{blog}}
+
+<table class="main" bgcolor="#222222">
+
+<tr><td>
+</td><td>
+<h2>GrayBravery.com/blog&nbsp;&nbsp;&nbsp</h2>
+</td></tr>
+{% for blog in blog_list %}
+<tr><td>
+<table bgcolor="#962222" class = "date"><tr><td><p class="date">{{blog.pub_date|date:"b"}}</p></td></tr><tr><td><p class = "date">{{blog.pub_date.day}}</p></td></tr></table>
+
+</td><td>
+<h1> {{blog.title}} </h1>
+</td><td></td></tr>
+<tr class="spaceUnder"><td>
+</td><td>
+<p class ="main"> {{blog.content}} </p>
+</td><td></td></tr>
+
+{% endfor %}
+
+
+<tr><td></td><td>
+
+<div class="pagination">
+    <span class="step-links">'
+		<table class = "pagelink"><tr><td>
+        {% if blog_list.has_previous %}
+            <a class = "pagelink" href="?page={{ blog_list.previous_page_number }}">previous</a>
+        {% endif %}
+		</td>
+		<td>
+		&nbsp;&nbsp;
+		</td>
+		<td>
+        {% if blog_list.has_next %}
+            <a class = "pagelink" href="?page={{ blog_list.next_page_number }}">next</a>
+        {% endif %}
+		</td></tr></table>
+    </span>
+</div>
+
+</td></tr>
+	
+</table>
+{% endblock %}

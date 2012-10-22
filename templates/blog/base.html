@@ -1,0 +1,55 @@
+{% load staticfiles %}
+
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href = "{% static "style.css" %}" />
+
+</head>
+
+<body bgcolor = "#412A2A">
+
+<div class="wrapper">
+
+<div>
+<div class=sidebar> 
+	<table class="sidebar">
+		<tr>
+			<td class="sidebar sidebartop">
+				<a href="/blog" class="sidelink" >Home</a>
+			</td>
+		</tr>
+		<tr>
+			<td class="sidebar">
+				<a href="/blog" class="sidelink" ><div>Blog</div></a>
+			</td>
+		</tr>
+		<tr>
+			<td class="sidebar sidebarbottom">
+				<a href="/about" class="sidelink" ><div>About Me</div></a>
+			</td>
+		</tr>
+	</table>
+	
+	
+</div>
+</div>
+
+<center>
+
+{% block content %} {% endblock %}
+
+</center>
+
+<div class="push"></div>
+</div>
+<center>
+<div class="footer">
+	<table class="main tablefoot">
+	<tr><td ><p class=" footer"> &copy; Copyright 2012 Graybravery.com. All rights reserved.</p></td></tr>
+	</table>
+</div>
+</center>
+
+</body>
+</html>
