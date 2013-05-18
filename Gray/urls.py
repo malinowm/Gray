@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^blog/$', 'blog.views.bloglist'),
     url(r'^blog/(?P<postNo>\d+)/$', 'blog.views.singleblog'),
     url(r'^about/$', 'blog.views.about'),
+    url(r'^Xmas/$', 'blog.views.xmas'),
 )

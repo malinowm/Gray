@@ -1,55 +1,22 @@
 {% load staticfiles %}
-
-
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href = "{% static "style.css" %}" />
+
+<link rel="stylesheet" type="text/css" href = "{% static "bootstrap/css/bootstrap-min-cyborg.css" %}" />
 
 </head>
 
-<body bgcolor = "#412A2A">
-
-<div class="wrapper">
-
-<div>
-<div class=sidebar> 
-	<table class="sidebar">
-		<tr>
-			<td class="sidebar sidebartop">
-				<a href="/blog" class="sidelink" >Home</a>
-			</td>
-		</tr>
-		<tr>
-			<td class="sidebar">
-				<a href="/blog" class="sidelink" ><div>Blog</div></a>
-			</td>
-		</tr>
-		<tr>
-			<td class="sidebar sidebarbottom">
-				<a href="/about" class="sidelink" ><div>About Me</div></a>
-			</td>
-		</tr>
-	</table>
-	
-	
+<div class="navbar navbar-static-top ">
+  <div class="navbar-inner">
+    <a class="brand" href="#">GrayBravery.com</a>
+    <ul class="nav">
+      <li id="nav-home"><a href="/about">Home</a></li>
+      <li id="nav-blog"><a href="/blog">Blog</a></li>
+    </ul>
+  </div>
 </div>
-</div>
-
-<center>
 
 {% block content %} {% endblock %}
-
-</center>
-
-<div class="push"></div>
-</div>
-<center>
-<div class="footer">
-	<table class="main tablefoot">
-	<tr><td ><p class=" footer"> &copy; Copyright 2012 Graybravery.com. All rights reserved.</p></td></tr>
-	</table>
-</div>
-</center>
 
 </body>
 </html>

@@ -3,37 +3,38 @@
 
 {% block content %}
 
-{{blog}}
 
-<table class="main" bgcolor="#222222">
-
-<tr><td>
-</td><td>
-<h2>GrayBravery.com/blog&nbsp;&nbsp;&nbsp</h2>
-</td></tr>
 {% for blog in blog_list %}
-<tr><td>
-<table bgcolor="#962222" class = "date"><tr><td><p class="date">{{blog.pub_date|date:"b"}}</p></td></tr><tr><td><p class = "date">{{blog.pub_date.day}}</p></td></tr></table>
+	<div class="well span8 offset2" style="margin-top:10px">
 
-</td><td>
-<h1> {{blog.title}} </h1>
-</td><td></td></tr>
-<tr class="spaceUnder"><td>
-</td><td>
-<p class ="main"> {{blog.content}} </p>
-</td><td></td></tr>
-
+		<h3 style="margin:-5px;"> {{blog.title}} </h3>
+		<h6 style="margin:-5px;"> {{blog.pub_date|date:"b"}} {{blog.pub_date.day}}</h6>
+		<hr>
+		<p> {{blog.content}} </p>
+	</div>
 {% endfor %}
 
+<div class="pagination pagination-centered span12">
+    <ul>
+        <li> <a href="?page={{ 1 }}">&laquo;</a></li>
+		{% if blog_list.has_previous %}
+            <li> <a href="?page={{ blog_list.previous_page_number }}">{{ blog_list.previous_page_number }}</a></li>
+        {% endif %}
+        <li class="active"> <a href="?page={{ blog_list.number }}"> {{ blog_list.number }} </a> </li>
 
-<tr><td></td><td>
+		{% if blog_list.has_next %}
+            <li> <a href="?page={{ blog_list.next_page_number }}">{{ blog_list.next_page_number }}</a></li>
+        {% endif %}
+		<!-- not sure how to get this to work<li> <a href="?page={{ blog_list.last_page_number }}">&raquo;</a></li> -->
+    </ul>
+</div>
+</center>
 
+<!-- 
 <div class="pagination">
     <span class="step-links">'
 		<table class = "pagelink"><tr><td>
-        {% if blog_list.has_previous %}
-            <a class = "pagelink" href="?page={{ blog_list.previous_page_number }}">previous</a>
-        {% endif %}
+        
 		</td>
 		<td>
 		&nbsp;&nbsp;
@@ -45,8 +46,5 @@
 		</td></tr></table>
     </span>
 </div>
-
-</td></tr>
-	
-</table>
+-->
 {% endblock %}

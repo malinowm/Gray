@@ -60,3 +60,9 @@ def about(request):
     t = loader.get_template('blog/about.html')
     c = RequestContext(request, {})
     return HttpResponse(t.render(c))
+
+def xmas(request):
+
+    t = loader.get_template('xmas.html')
+    c = RequestContext(request, {})
+    return HttpResponse(t.render(c))
